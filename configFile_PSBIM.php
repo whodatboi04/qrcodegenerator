@@ -1,8 +1,8 @@
 <?php
 
 define('dbhost','localhost');
-define('dbuser','pcporg_psbimuser');
-define('dbpass','2024pcP2024');
+define('dbuser','root');
+define('dbpass','');
 define('db_name','pcporg_psbimattendance');
 
 
@@ -38,14 +38,6 @@ if(isset($_GET['seatcode']))
     $_SESSION['seatcode'] = $varSeatCode;
     $_SESSION['qrlink'] = $fetchdata['qrlink'];
     $_SESSION['mydate'] = $myDate;
-
-    echo  $_SESSION['lastname'] . "<br/>";
-    echo  $_SESSION['firstname'] . "<br/>";
-    echo  $_SESSION['middle_initial']. "<br/>";
-    echo  $_SESSION['extension_name']. "<br/>";
-    echo  $_SESSION['seatcode']. "<br/>";
-    echo  $_SESSION['qrlink']. "<br/>";
-    echo  $_SESSION['mydate']. "<br/>";
 
     echo '<script>window.location.href = "cert.php";</script>';
     
