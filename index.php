@@ -15,12 +15,13 @@ if(isset($_SESSION['userID'])){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
-    <title>Login Interface</title>
+    <title>Login Interface</title>s
 </head>
 <body>
     <div class="login-container">
         <div class="login-header">
             <h1>Login</h1>
+            <p class="error-message"><?php include('message.php') ?></p>
         </div>
         <form action="includes/login.inc.php" method="POST">
             <div class="form-group">

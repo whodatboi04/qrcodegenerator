@@ -25,6 +25,7 @@ if(!isset($_SESSION['userID'])){
         <div class="register-wrapper">
             <div class="register-header">
                 <h1>Register</h1>
+                <p class="error-message"><?php include('message.php') ?></p>
             </div>
             <form action="includes/register.inc.php" method="POST">
                 <div class="form-group">

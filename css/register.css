@@ -108,3 +108,9 @@ input[type="submit"]:hover {
 .already-account a:hover {
     text-decoration: underline;
 }
+
+.error-message {
+    color: red !important;
+    padding: 10px;
+    margin-top: 10px;
+ }

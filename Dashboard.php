@@ -39,7 +39,7 @@ ini_set('display_errors', 1);
                                 <th>First Name</th>
                                 <th>Middle Initial</th>
                                 <th>Building Room</th>
-                                <th>QR Code</th>
+                                <th>Attendance Form</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -53,27 +53,14 @@ ini_set('display_errors', 1);
                             if ($result) {
                                 foreach ($result as $row) {
                                     echo '<tr>';
-                                    echo '<td>' . htmlspecialchars($row['seatcode']) . '</td>';
-                                    echo '<td>' . htmlspecialchars($row['lastname']) . '</td>';
-                                    echo '<td>' . htmlspecialchars($row['firstname']) . '</td>';
-                                    echo '<td>' . htmlspecialchars($row['middle_initial']) . '</td>';
-                                    echo '<td>' . htmlspecialchars($row['bldg_room']) . '</td>';
-                                    echo '<td>';
-
-                                    $text =  $row['qrlink'];
-
-                                    $path = 'QRtemp/Qr.png';
-
-                                    // $ecc stores error correction capability('L')
-                                    $ecc = 'L';
-                                    $pixel_Size = 10;
-                                    $frame_Size = 10;
-                                    
-                                    // Generates QR Code and Stores it in directory given
-                                    QRcode::png($text, $path, $ecc, $pixel_Size, $frame_Size);
-                                   
-
-                                    echo '</td>';
+                                        echo '<td>' . htmlspecialchars($row['seatcode']) . '</td>';
+                                        echo '<td>' . htmlspecialchars($row['lastname']) . '</td>';
+                                        echo '<td>' . htmlspecialchars($row['firstname']) . '</td>';
+                                        echo '<td>' . htmlspecialchars($row['middle_initial']) . '</td>';
+                                        echo '<td>' . htmlspecialchars($row['bldg_room']) . '</td>';
+                                        echo '<td>';
+                                           echo '<a href="'. $row['qrlink'] .'" target="blank"> View Form </a>';
+                                        echo '</td>';
                                     echo '</tr>';
                                 }
                             } else {
@@ -88,7 +75,7 @@ ini_set('display_errors', 1);
                                 <th>First Name</th>
                                 <th>Middle Initial</th>
                                 <th>Building Room</th>
-                                <th>QR Code</th>
+                                <th>Attendance Form</th>
                             </tr>
                         </tfoot>
                     </table>

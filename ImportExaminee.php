@@ -33,8 +33,6 @@ if(!isset($_SESSION['userID'])){
                     <button type="submit" name="upload_file" class="upload-btn">Upload</button>
                 </div>
             </form>
-            
-            <a href="logout.php" class="logout-link">Logout</a>
         </div>
     </div>
     

@@ -15,6 +15,11 @@
             <li>
                 <a href="register.php">Register Account</a>
             </li>
+
+            <li>
+                <a href="logout.php">Logout</a>
+            </li>
+
         </div>
     </ul>
 </nav>
