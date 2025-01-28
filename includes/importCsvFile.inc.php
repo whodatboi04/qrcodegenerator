@@ -2,7 +2,6 @@
 
 session_start();
 
-// Database connection
 define('dbhost', 'localhost');
 define('dbuser', 'root');
 define('dbpass', '');
@@ -21,15 +20,13 @@ ini_set('display_errors', 1);
 if (isset($_POST['upload_file'])) {
     $file = $_FILES['csv_file']['tmp_name'];
 
-    // Open the file and read its content
     if (($handle = fopen($file, 'r')) !== false) {
-        // Skip the first row if it contains headers
+        // Skip the first row 
         fgetcsv($handle);
 
         $stmt = $conn->prepare("INSERT INTO psbim_tbl (lastname, firstname, middle_initial, bldg_room, seatcode, qrlink) 
                                 VALUES (:lastname, :firstname, :middle_initial, :bldg_room, :seatcode, :qrlink)");
 
-        // Process each row of the CSV
         while (($data = fgetcsv($handle, 0, ',')) !== false) {
         
             $lastname = $data[0];
@@ -60,4 +57,5 @@ if (isset($_POST['upload_file'])) {
 // Redirect back to the import page
 header("Location: ../ImportExaminee.php");
 exit();
+
 ?>
