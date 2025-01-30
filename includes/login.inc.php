@@ -38,6 +38,13 @@ if(isset($_POST['login']))
             $_SESSION['firstname'] = $user['firstname'];
             $_SESSION['lastname'] = $user['lastname'];
             $_SESSION['email'] = $user['email'];
+            $_SESSION['access'] = $user['access'];
+
+            if($user['access'] === 'Admin'){
+                header("Location:../Dashboard.php");
+                exit();
+            }
+
             header("Location:../ImportExaminee.php");
             exit();
         }else{

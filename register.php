@@ -49,11 +49,20 @@ if(!isset($_SESSION['userID'])){
                     <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm your password" required>
                 </div>
                 <div class="form-group">
+                    <label for="access">Account Role</label>
+                    <select name="access" >
+                        <option value="" disabled selected>-- Select Role --</option>
+                        <option value="SuperAdmin">Super Administrator</option>
+                        <option value="Admin">Administrator</option>
+                    </select>
+                </div>
+                <div class="form-group">
                     <input type="submit" name="register" value="Register">
                 </div>
             </form>
         </div>
-        
     </div>
+    
+    <?php include('assets/footer.php') ?>
 </body>
 </html>

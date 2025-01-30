@@ -71,7 +71,7 @@ label {
 }
 
 input[type="text"], input[type="email"], input[type="password"] {
-    width: 94%;
+    width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -89,6 +89,14 @@ input[type="submit"] {
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.3s;
+}
+
+select{
+    width: 100%;
+    padding: 10px;  
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
 }
 
 input[type="submit"]:hover {
@@ -114,3 +122,14 @@ input[type="submit"]:hover {
     padding: 10px;
     margin-top: 10px;
  }
+
+footer{
+    background-color: #2E2E2E;
+    padding: 18px;
+    display: flex;
+    justify-content: center;
+}
+
+footer .text-footer{
+    color: #fff;
+}

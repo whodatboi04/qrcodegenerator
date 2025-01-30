@@ -2,16 +2,7 @@
 
 session_start();
 
-define('dbhost','localhost');
-define('dbuser','root');
-define('dbpass','');
-define('db_name','pcporg_psbimattendance');
-
-try {
-    $conn = new PDO("mysql:host=".dbhost.";dbname=".db_name, dbuser, dbpass);
-} catch (PDOException $e) {
-    exit("Error".$e->getMessage());
-}
+include('../connection/conn.php');
 
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
@@ -22,6 +13,7 @@ if (isset($_POST['register'])) {
     $email = $_POST['email'];
     $password = $_POST['password'];
     $confirm_password = $_POST['confirm-password'];
+    $access = $_POST['access'];
 
     // Check if the email already exists
     $stmt = $conn->prepare("SELECT * FROM users WHERE email = :email");
@@ -43,14 +35,16 @@ if (isset($_POST['register'])) {
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
         
         // Insert user data into the database
-        $stmt = $conn->prepare("INSERT INTO users (firstname, lastname, email, password, status) VALUES(:firstname, :lastname, :email, :password, 'active')");
+        $stmt = $conn->prepare("INSERT INTO users (firstname, lastname, email, password, access, status) VALUES(:firstname, :lastname, :email, :password, :access, 'active')");
         $stmt->bindValue(":firstname", $firstname, PDO::PARAM_STR);
         $stmt->bindValue(":lastname", $lastname, PDO::PARAM_STR);
         $stmt->bindValue(":email", $email, PDO::PARAM_STR);
         $stmt->bindValue(":password", $hashedPassword, PDO::PARAM_STR);
+        $stmt->bindValue(":access", $access, PDO::PARAM_STR); 
         
         $stmt->execute();
         $stmt->closeCursor();
+        $_SESSION['message'] = "Successfuly Registered";
         header("Location: ../index.php");
     }
 }

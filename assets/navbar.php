@@ -1,3 +1,9 @@
+<?php
+
+session_start();
+
+?>
+
 <nav>
     <ul>
         <li>
@@ -6,19 +12,35 @@
             </a>
         </li>
         <div class="nav-button">
-            <li>
-                <a href="ImportExaminee.php">Home</a>
-            </li>
-            <li>
-                <a href="Dashboard.php">Dashboard</a>
-            </li>
-            <li>
-                <a href="register.php">Register Account</a>
-            </li>
+            <?php if($_SESSION['access'] === 'SuperAdmin'){ ?>
+                <li>
+                    <a href="ImportExaminee.php">Home</a>
+                </li>
 
-            <li>
-                <a href="logout.php">Logout</a>
-            </li>
+                <li>
+                    <a href="Dashboard.php">Dashboard</a>
+                </li>
+
+                <li>
+                    <a href="register.php">Register Account</a>
+                </li>
+
+                <li>
+                    <a href="Accounts.php">Accounts</a>
+                </li>
+
+                <li>
+                    <a href="logout.php">Logout</a>
+                </li> 
+            <?php } else { ?>
+                <li>
+                    <a href="Dashboard.php">Dashboard</a>
+                </li>
+
+                <li>
+                    <a href="logout.php">Logout</a>
+                </li> 
+            <?php } ?>
 
         </div>
     </ul>

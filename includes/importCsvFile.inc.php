@@ -2,16 +2,7 @@
 
 session_start();
 
-define('dbhost', 'localhost');
-define('dbuser', 'root');
-define('dbpass', '');
-define('db_name', 'pcporg_psbimattendance');
-
-try {
-    $conn = new PDO("mysql:host=" . dbhost . ";dbname=" . db_name, dbuser, dbpass);
-} catch (PDOException $e) {
-    die("Database connection failed: " . $e->getMessage());
-}
+include('../connection/conn.php');
 
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
@@ -29,12 +20,12 @@ if (isset($_POST['upload_file'])) {
 
         while (($data = fgetcsv($handle, 0, ',')) !== false) {
         
-            $lastname = $data[0];
-            $firstname = $data[1];
-            $middle_initial = $data[2];
-            $bldg_room = $data[3];
-            $seatcode = $data[4];
-            $qrlink = $data[5];
+                $lastname = $data[0];
+                $firstname = $data[1];
+                $middle_initial = $data[2];
+                $bldg_room = $data[3];
+                $seatcode = $data[4];
+                $qrlink = $data[5];
 
             $stmt->bindValue(':lastname', $lastname, PDO::PARAM_STR);
             $stmt->bindValue(':firstname', $firstname, PDO::PARAM_STR);

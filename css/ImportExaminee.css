@@ -110,3 +110,18 @@ ul li img{
     color: #fff;
     cursor: pointer;
 }
+
+.import-button span{
+    text-decoration: underline;
+}
+
+footer{
+    background-color: #2E2E2E;
+    padding: 18px;
+    display: flex;
+    justify-content: center;
+}
+
+footer .text-footer{
+    color: #fff;
+}

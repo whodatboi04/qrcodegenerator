@@ -3,6 +3,7 @@ body{
     font-family: Arial, sans-serif;
     background-color: #f8f8f8;
 }
+
 nav{
     padding: 5px 8rem 5px 8rem;
 }
@@ -31,9 +32,17 @@ ul li img{
     width: 50px;
 }
 
+.status{
+    background-color: #7FFF5F;
+    color: #066F0B;
+    font-weight: bold;
+    padding: 2px 25px;
+    border-radius: 15px;
+}
+
 .section-container{
     padding: 0 2rem 0 2rem;
-
+    height: 100vh;
 }
 
 .content-container{

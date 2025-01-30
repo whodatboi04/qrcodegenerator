@@ -20,7 +20,6 @@ if(!isset($_SESSION['userID'])){
     <title>Import Examinee CSV</title>
 </head>
 <body>
-    
     <div class="import-wrapper">
         <div class="import-container">
             <form method="POST" action="includes/importCsvFile.inc.php" enctype="multipart/form-data"> 
@@ -29,12 +28,13 @@ if(!isset($_SESSION['userID'])){
                 </div>
                 <div class="import-button">
                     <a href="sampleCsv.csv" class="csv-button" download>Download Sample CSV</a>
+                    <span>(Please make sure the file is csv UTF-8)</span>
                     <input type="file" name="csv_file" required />
                     <button type="submit" name="upload_file" class="upload-btn">Upload</button>
                 </div>
             </form>
         </div>
     </div>
-    
+    <?php include('assets/footer.php') ?>
 </body>
 </html>
