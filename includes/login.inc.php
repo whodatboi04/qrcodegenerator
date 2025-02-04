@@ -2,16 +2,7 @@
 
 session_start();
 
-define('dbhost','localhost');
-define('dbuser','root');
-define('dbpass','');
-define('db_name','pcporg_psbimattendance');
-
-try {
-    $conn = new PDO("mysql:host=".dbhost.";dbname=".db_name,dbuser,dbpass);
-} catch (PDOException $e) {
-    exit("Error".$e->getMessage());
-}
+include('../connection/conn.php');
 
 error_reporting(E_ALL);
 ini_set('display_errors', 1);

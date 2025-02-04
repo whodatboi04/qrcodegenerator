@@ -45,7 +45,7 @@ if (isset($_POST['register'])) {
         $stmt->execute();
         $stmt->closeCursor();
         $_SESSION['message'] = "Successfuly Registered";
-        header("Location: ../index.php");
+        header("Location: ../register.php");
     }
 }
 ?>

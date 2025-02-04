@@ -3,6 +3,8 @@
 include('connection/conn.php');
 
 
+
+
 if(isset($_GET['seatcode']))
 {
 
@@ -27,8 +29,7 @@ if(isset($_GET['seatcode']))
     $_SESSION['qrlink'] = $fetchdata['qrlink'];
     $_SESSION['mydate'] = $myDate;
 
-    echo '<script>window.location.href = "cert.php";</script>';
-    
+    header('Location: cert.php');
 }
 
 
