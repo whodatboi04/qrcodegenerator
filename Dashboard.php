@@ -56,7 +56,7 @@ ini_set('display_errors', 1);
                                         echo '<td>' . htmlspecialchars($row['middle_initial']) . '</td>';
                                         echo '<td>' . htmlspecialchars($row['bldg_room']) . '</td>';
                                         echo '<td>';
-                                           echo '<a href="'. $row['qrlink'] .'" target="blank"> View Form </a>';
+                                            echo '<a href="'. $row['qrlink'] .'" target="blank"> View Form </a>';
                                         echo '</td>';
                                     echo '</tr>';
                                 }

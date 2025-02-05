@@ -58,9 +58,8 @@ imagedestroy($image);
 
 $text =  $_SESSION['qrlink'];
 
-echo $_SESSION['qrlink'];
-
 $path = 'QRtemp/Qr.png';
+
 
 
 // $ecc stores error correction capability('L')

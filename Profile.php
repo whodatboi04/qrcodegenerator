@@ -1,7 +1,5 @@
 <?php
 
-session_start();
-
 include('assets/navbar.php');
 
 if(!isset($_SESSION['userID'])){
@@ -49,6 +47,7 @@ $email = $_SESSION['email'];
                     <h2>Settings</h2>
                     <p><a href="ChangePassword.php">Change Password</a></p>
                     <p><a href="update-profile.php">Update Profile</a></p>
+                    <p><a href="logout.php">Logout</a></p>
                 </div>
             </div>
         </div>

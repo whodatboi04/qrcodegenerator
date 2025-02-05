@@ -1,6 +1,6 @@
 <?php
 
-session_start();
+//session start included on navbar.php
 
 include('assets/navbar.php');
 

@@ -47,6 +47,10 @@ ul li img{
     text-align: center;
 }
 
+.section-container{
+    min-height: 100vh;
+}
+
 footer{
     background-color: #2E2E2E;
     padding: 18px;
