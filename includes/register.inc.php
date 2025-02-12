@@ -35,12 +35,13 @@ if (isset($_POST['register'])) {
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
         
         // Insert user data into the database
-        $stmt = $conn->prepare("INSERT INTO users (firstname, lastname, email, password, access, status) VALUES(:firstname, :lastname, :email, :password, :access, 'active')");
+        $stmt = $conn->prepare("INSERT INTO users (firstname, lastname, email, password, access, status) VALUES(:firstname, :lastname, :email, :password, :access, :status)");
         $stmt->bindValue(":firstname", $firstname, PDO::PARAM_STR);
         $stmt->bindValue(":lastname", $lastname, PDO::PARAM_STR);
         $stmt->bindValue(":email", $email, PDO::PARAM_STR);
         $stmt->bindValue(":password", $hashedPassword, PDO::PARAM_STR);
         $stmt->bindValue(":access", $access, PDO::PARAM_STR); 
+        $stmt->bindValue(":status", 'active', PDO::PARAM_STR);
         
         $stmt->execute();
         $stmt->closeCursor();

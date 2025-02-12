@@ -3,7 +3,6 @@ body{
     font-family: Arial, sans-serif;
     background-color: #f8f8f8;
 }
-
 nav{
     padding: 5px 8rem 5px 8rem;
 }
@@ -32,14 +31,6 @@ ul li img{
     width: 50px;
 }
 
-.status{
-    background-color: #7FFF5F;
-    color: #066F0B;
-    font-weight: bold;
-    padding: 2px 25px;
-    border-radius: 15px;
-}
-
 .section-container{
     padding: 0 2rem 0 2rem;
     height: 100vh;
@@ -56,28 +47,36 @@ ul li img{
     text-align: center;
 }
 
-.edit{
-    background-color: #FFF700;
-    color: #7F7F00;
-    padding: 0.5rem;
-    border-radius: 5px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.archive{
+.status{
     background-color: #FF0000;
     color: #7F0000;
-    padding: 0.5rem;
-    border-radius: 5px;
     font-weight: bold;
-    cursor: pointer;
+    padding: 2px 25px;
+    border-radius: 15px;
 }
 
 .action{
     display: flex;
     justify-content: center;
     gap: 0.5rem;
+}
+
+.restore{
+    background-color: #006EFF;
+    color: #003F7F;
+    padding: 0.5rem;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.delete{
+    background-color: #FF0000;
+    color: #7F0000;
+    padding: 0.5rem;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
 }
 
 footer{

@@ -30,7 +30,7 @@ session_start();
 
                 <li>
                     <a href="register.php">
-                        <i class="fas fa-user-plus"></i> Register Account
+                        <i class="fas fa-user-plus"></i> Register User
                     </a>
                 </li>
 
@@ -39,6 +39,12 @@ session_start();
                         <i class="fas fa-users"></i> Accounts
                     </a>
                 </li>
+                
+                <li>
+                    <a href="trash.php">
+                        <i class="fa-solid fa-trash"></i> Trash
+                    </a>
+                </li> 
 
                 <li>
                     <a href="Profile.php">

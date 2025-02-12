@@ -1,11 +1,22 @@
 <?php
-//session start included on navbar.php
 
+//session start included on navbar.php
 include('assets/navbar.php');
 include('connection/conn.php');
 
 ini_set('display_startup_errors', 1);
 ini_set('display_errors', 1);
+
+// Check if User is Logged In
+if (
+    !isset($_SESSION['userID']) || 
+    !isset($_SESSION['access']) || $_SESSION['access'] !== 'SuperAdmin'  ||
+    !isset($_SESSION['status']) || $_SESSION['status'] !== 'active'
+){
+    header("Location: index.php");
+    exit();
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -27,7 +38,7 @@ ini_set('display_errors', 1);
             <div class="table-wrapper">
                 <div class="main-table w3-animate-left">
                     <div class="table-header">
-                        <h1>Dashboard</h1>
+                        <h1>Accounts</h1>
                     </div>
                     <table id="myTable" class="table table-striped" style="width:100%; font-size:15px;">
                         <thead>
@@ -37,12 +48,13 @@ ini_set('display_errors', 1);
                                 <th>Email</th>
                                 <th>Role</th>
                                 <th>Status</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
                             // Fetch Data
-                            $stmt = $conn->prepare("SELECT * FROM users ORDER BY userID");
+                            $stmt = $conn->prepare("SELECT * FROM users WHERE status = 'active' ORDER BY userID");
                             $stmt->execute();
                             $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
@@ -55,6 +67,10 @@ ini_set('display_errors', 1);
                                         echo '<td>' . htmlspecialchars($row['email']) . '</td>';
                                         echo '<td>' . htmlspecialchars($row['access']) . '</td>';
                                         echo '<td> <span class="status">' . htmlspecialchars($row['status']) . '</span> </td>';
+                                        echo '<td class="action">';
+                                            echo '<a href="editUser.php?userID=' . $row['userID'] . '"><i class="fa-solid fa-pen-to-square edit"></i></a>';
+                                            echo '<a href="trashUser.php?userID=' . $row['userID'] . '"><i class="fa-solid fa-trash archive"></i></a>';
+                                        echo '</td>';
 
                                     echo '</tr>';
                                 }
@@ -68,6 +84,7 @@ ini_set('display_errors', 1);
                                 <th>Email</th>
                                 <th>Role</th>
                                 <th>Status</th>
+                                <th>Action</th>
                             </tr>
                         </tfoot>
                     </table>

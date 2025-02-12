@@ -1,9 +1,7 @@
-<?php
+<?php 
 
-// Required Includes
 include('assets/navbar.php');
 include('connection/conn.php');
-include('phpqrcode/qrlib.php');
 
 ini_set('display_startup_errors', 1);
 ini_set('display_errors', 1);
@@ -11,6 +9,7 @@ ini_set('display_errors', 1);
 // Check if User is Logged In
 if (
     !isset($_SESSION['userID']) || 
+    !isset($_SESSION['access']) || $_SESSION['access'] !== 'SuperAdmin'  ||
     !isset($_SESSION['status']) || $_SESSION['status'] !== 'active'
 ){
     header("Location: index.php");
@@ -28,32 +27,33 @@ if (
     <link rel="stylesheet" href="https://cdn.datatables.net/2.0.7/css/dataTables.dataTables.css" />
     <link rel="stylesheet" href="https://cdn.datatables.net/responsive/3.0.2/css/responsive.dataTables.min.css">
     <!-- Datatable CDN END -->
-    <link rel="stylesheet" href="css/Dashboard.css">
-    <title>Dashboard</title>
+    <link rel="stylesheet" href="css/trash.css">
+    <title>Trash</title>
 </head>
 <body>
+
     <section class="section-container">
         <div class="content-container">
             <div class="table-wrapper">
                 <div class="main-table w3-animate-left">
                     <div class="table-header">
-                        <h1>Dashboard</h1>
+                        <h1>Archive Accounts</h1>
                     </div>
                     <table id="myTable" class="table table-striped" style="width:100%; font-size:15px;">
-                        <thead>
+                    <thead>
                             <tr>
-                                <th>SeatCode</th>
                                 <th>Last Name</th>
                                 <th>First Name</th>
-                                <th>Middle Initial</th>
-                                <th>Building Room</th>
-                                <th>Attendance Form</th>
+                                <th>Email</th>
+                                <th>Role</th>
+                                <th>Status</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
                             // Fetch Data
-                            $stmt = $conn->prepare("SELECT * FROM psbim_tbl ORDER BY id");
+                            $stmt = $conn->prepare("SELECT * FROM users WHERE status = 'inactive' ORDER BY userID");
                             $stmt->execute();
                             $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
@@ -61,35 +61,40 @@ if (
                             if ($result) {
                                 foreach ($result as $row) {
                                     echo '<tr>';
-                                        echo '<td>' . htmlspecialchars($row['seatcode']) . '</td>';
                                         echo '<td>' . htmlspecialchars($row['lastname']) . '</td>';
                                         echo '<td>' . htmlspecialchars($row['firstname']) . '</td>';
-                                        echo '<td>' . htmlspecialchars($row['middle_initial']) . '</td>';
-                                        echo '<td>' . htmlspecialchars($row['bldg_room']) . '</td>';
-                                        echo '<td>';
-                                            echo '<a href="'. $row['qrlink'] .'" target="blank"> View Form </a>';
+                                        echo '<td>' . htmlspecialchars($row['email']) . '</td>';
+                                        echo '<td>' . htmlspecialchars($row['access']) . '</td>';
+                                        echo '<td> <span class="status">' . htmlspecialchars($row['status']) . '</span> </td>';
+                                        echo '<td class="action">';
+                                            echo '<a href="includes/accountAction.inc.php?restoreID=' . $row['userID'] . '" class="restore"><i class="fa-solid fa-rotate-left restore"></i></a>';
+                                            echo '<a href="permanentDelete.php?userID=' . $row['userID'] . '" class="delete"><i class="fa-solid fa-trash delete"></i></a>';
                                         echo '</td>';
+
+                                        
+
                                     echo '</tr>';
                                 }
-                            } 
+                            }
                             ?>
-                            <tfoot>
-                                <tr>
-                                    <th>SeatCode</th>
-                                    <th>Last Name</th>
-                                    <th>First Name</th>
-                                    <th>Middle Initial</th>
-                                    <th>Building Room</th>
-                                    <th>Attendance Form</th>
-                                </tr>
-                            </tfoot>
                         </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>Last Name</th>
+                                <th>First Name</th>
+                                <th>Email</th>
+                                <th>Role</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </tfoot>
                     </table>
                 </div>
             </div>
         </div>
     </section>
     <?php include('assets/footer.php') ?>
+    
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script defer src="https://cdn.datatables.net/2.0.7/js/dataTables.js"></script>

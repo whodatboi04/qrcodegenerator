@@ -110,6 +110,23 @@ ul li img{
     margin: 5px 0;
   }
 
+  .logout{
+    margin-top: 1rem;
+  }
+  
+
+  .logout a{
+    background-color: #551713;
+    padding: 0.5rem 2rem;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #fff;
+  }
+
+  .logout a:hover{
+    background-color: #7F0A0A;
+  }
+
   footer{
     background-color: #2E2E2E;
     padding: 18px;

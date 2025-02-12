@@ -3,7 +3,12 @@
 
 include('assets/navbar.php');
 
-if(!isset($_SESSION['userID'])){
+
+if (
+    !isset($_SESSION['userID']) || 
+    !isset($_SESSION['access']) || $_SESSION['access'] !== 'SuperAdmin'  ||
+    !isset($_SESSION['status']) || $_SESSION['status'] !== 'active'
+){
     header("Location: index.php");
     exit();
 }

@@ -2,8 +2,11 @@
 
 include('assets/navbar.php');
 
-if(!isset($_SESSION['userID'])){
-    header('Location: ../index.php');
+if (
+    !isset($_SESSION['userID']) || 
+    !isset($_SESSION['status']) || $_SESSION['status'] !== 'active'
+){
+    header("Location: index.php");
     exit();
 }
 
@@ -47,7 +50,9 @@ $email = $_SESSION['email'];
                     <h2>Settings</h2>
                     <p><a href="ChangePassword.php">Change Password</a></p>
                     <p><a href="update-profile.php">Update Profile</a></p>
-                    <p><a href="logout.php">Logout</a></p>
+                    <div class="logout">
+                        <a href="logout.php">Logout</a>
+                    </div>
                 </div>
             </div>
         </div>

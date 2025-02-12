@@ -30,6 +30,7 @@ if(isset($_POST['login']))
             $_SESSION['lastname'] = $user['lastname'];
             $_SESSION['email'] = $user['email'];
             $_SESSION['access'] = $user['access'];
+            $_SESSION['status'] = $user['status'];
 
             if($user['access'] === 'Admin'){
                 header("Location:../Dashboard.php");

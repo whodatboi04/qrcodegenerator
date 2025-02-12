@@ -1,15 +1,17 @@
 <?php
 
 //session start included on navbar.php
-
 include('assets/navbar.php');
 
-if(!isset($_SESSION['userID'])){
-   header('Location: index.php');
+// Check if User is Logged In
+if (
+    !isset($_SESSION['userID']) || 
+    !isset($_SESSION['access']) || $_SESSION['access'] !== 'SuperAdmin'  ||
+    !isset($_SESSION['status']) || $_SESSION['status'] !== 'active'
+){
+    header("Location: index.php");
     exit();
 }
-
-
 ?>
 
 <!DOCTYPE html>
