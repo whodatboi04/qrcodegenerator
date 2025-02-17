@@ -1,12 +1,12 @@
 <?php
 
-session_start();
+include('assets/navbar.php');
 include('connection/conn.php');
 
 //Check if the user is logged in
 
 
-$userID = $_GET['userID'];
+$userID = $_SESSION['userID'];
 
 $stmt = $conn->prepare("SELECT * FROM users WHERE userID = :userID");
 $stmt->bindParam(':userID', $userID, PDO::PARAM_INT);
@@ -25,14 +25,15 @@ $access = htmlspecialchars($result['access']);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/editUser.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="css/UpdateProfile.css">
+    <link href="pcp-logo.png" rel="icon">
+    <title>Update Profile</title>
 </head>
 <body>
     <section>
         <div class="edit-container">
-            <h1>Edit User</h1>
-            <form method="POST" action="includes/accountAction.inc.php">
+            <h1>Update Profile</h1>
+            <form method="POST" action="includes/UpdateProfile.inc.php">
                 <input type="hidden" name="userID" value="<?php echo $userID; ?>">
 
                 <div>
@@ -51,23 +52,16 @@ $access = htmlspecialchars($result['access']);
                 </div>
 
                 <div>
-                    <label for="access">Role:</label>
-                    <select name="access" required>
-                        <option value="SuperAdmin" <?php echo $access == 'SuperAdmin' ? 'selected' : ''; ?>>SuperAdmin</option>
-                        <option value="Admin" <?php echo $access == 'Admin' ? 'selected' : ''; ?>>Admin</option>
-                    </select>
-                </div>
-
-                <div>
                     <label for="newPassword">New Password:</label>
                     <input type="password" name="newPassword" >
                 </div>
 
-                <button type="submit" name="edit_user">Save Changes</button>
-                <a href="Accounts.php">Cancel</a>
+                <button type="submit" name="update-profile">Save Changes</button>
             </form>
         </div>
     </section>
     
+    <?php include('assets/footer.php') ?>
+
 </body>
 </html>

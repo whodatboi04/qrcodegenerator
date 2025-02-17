@@ -22,7 +22,8 @@ $email = $_SESSION['email'];
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/Profile.css">
-    <title>Document</title>
+    <link href="pcp-logo.png" rel="icon">
+    <title>Profile</title>
 </head>
 <body>
     <section class="profile-wrapper">
@@ -49,7 +50,7 @@ $email = $_SESSION['email'];
                 <div class="profile-section">
                     <h2>Settings</h2>
                     <p><a href="ChangePassword.php">Change Password</a></p>
-                    <p><a href="update-profile.php">Update Profile</a></p>
+                    <p><a href="UpdateProfile.php">Update Profile</a></p>
                     <div class="logout">
                         <a href="logout.php">Logout</a>
                     </div>

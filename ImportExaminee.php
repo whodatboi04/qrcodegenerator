@@ -21,6 +21,8 @@ if (
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/ImportExaminee.css">
+    <link href="pcp-logo.png" rel="icon">
+
     <title>Import Examinee CSV</title>
 </head>
 <body>

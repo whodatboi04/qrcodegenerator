@@ -1,7 +1,5 @@
 <?php
 
-session_start();
-
 include('assets/navbar.php');
 
 
@@ -21,7 +19,8 @@ $userID = $_SESSION['userID'];
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/ChangePassword.css">
-    <title>Document</title>
+    <link href="pcp-logo.png" rel="icon">
+    <title>Change Password</title>
 </head>
 <body>
     <section class="changepass-wrapper">

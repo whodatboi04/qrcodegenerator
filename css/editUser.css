@@ -44,6 +44,12 @@ section{
     border: 1px solid #ccc;
 }
 
+.edit-container form div select{
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
 .edit-container form button{
     padding: 0.5rem;
     border-radius: 5px;

@@ -28,6 +28,7 @@ if (
     <link rel="stylesheet" href="https://cdn.datatables.net/responsive/3.0.2/css/responsive.dataTables.min.css">
     <!-- Datatable CDN END -->
     <link rel="stylesheet" href="css/trash.css">
+    <link href="pcp-logo.png" rel="icon">
     <title>Trash</title>
 </head>
 <body>

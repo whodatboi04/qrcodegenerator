@@ -29,6 +29,8 @@ if (
     <link rel="stylesheet" href="https://cdn.datatables.net/responsive/3.0.2/css/responsive.dataTables.min.css">
     <!-- Datatable CDN END -->
     <link rel="stylesheet" href="css/Dashboard.css">
+    <link href="/pcp-logo.png" rel="icon">
+    
     <title>Dashboard</title>
 </head>
 <body>

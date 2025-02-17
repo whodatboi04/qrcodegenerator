@@ -9,11 +9,20 @@ session_start();
 
 <nav>
     <ul>
-        <li>
-            <a href="ImportExaminee.php">
-                <img src="pcp-logo.png" alt="PCP Logo">
-            </a>
-        </li>
+        <div class="nav-header">
+            <li>
+                <a href="ImportExaminee.php">
+                    <img src="pcp-logo.png" alt="PCP Logo">
+                </a>
+            </li>
+
+            <li class="nav-toggle">
+                <button>
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </li>
+        </div>
+        
         <div class="nav-button">
             <?php if($_SESSION['access'] === 'SuperAdmin'){ ?>
                 <li>
@@ -59,11 +68,13 @@ session_start();
                 </li>
 
                 <li>
-                    <a href="logout.php">
-                        <i class="fas fa-sign-out-alt"></i> Logout
+                    <a href="Profile.php">
+                        <i class="fa-solid fa-user"></i> Profile
                     </a>
                 </li> 
             <?php } ?>
         </div>
     </ul>
 </nav>
+
+<script src="script.js"></script>

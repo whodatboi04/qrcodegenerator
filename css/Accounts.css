@@ -8,6 +8,10 @@ nav{
     padding: 5px 8rem 5px 8rem;
 }
 
+.nav-toggle{
+    display: none;
+}
+
 nav ul{
     display: flex;
     justify-content: space-between;
@@ -89,4 +93,53 @@ footer{
 
 footer .text-footer{
     color: #fff;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px){
+
+    nav{
+        padding: 15px 35px;
+    }
+
+    nav ul{
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+    }
+
+    ul .nav-button{
+        display: none;
+    }
+
+    ul .nav-button.active {
+        display: flex;
+        flex-direction: column;
+        
+    }
+
+    ul .nav-header{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+        align-items: center;
+    }
+
+    .nav-toggle{
+        display: block;
+    }
+
+    .nav-toggle button{
+        background-color: #511713;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    
+    footer .text-footer{
+        text-align: center;
+    }
 }
