@@ -1,17 +1,7 @@
 <?php
 
-define('dbhost','localhost');
-define('dbuser','pcporg_psbimuser');
-define('dbpass','2024pcP2024');
-define('db_name','pcporg_psbimattendance');
+include('connection/conn.php');
 
-
-
-try {
-    $conn = new PDO("mysql:host=".dbhost.";dbname=".db_name,dbuser,dbpass);
-} catch (PDOException $e) {
-    exit("Error".$e->getMessage());
-}
 
 
 
@@ -39,16 +29,7 @@ if(isset($_GET['seatcode']))
     $_SESSION['qrlink'] = $fetchdata['qrlink'];
     $_SESSION['mydate'] = $myDate;
 
-    echo  $_SESSION['lastname'] . "<br/>";
-    echo  $_SESSION['firstname'] . "<br/>";
-    echo  $_SESSION['middle_initial']. "<br/>";
-    echo  $_SESSION['extension_name']. "<br/>";
-    echo  $_SESSION['seatcode']. "<br/>";
-    echo  $_SESSION['qrlink']. "<br/>";
-    echo  $_SESSION['mydate']. "<br/>";
-
-    echo '<script>window.location.href = "cert.php";</script>';
-    
+    header('Location: cert.php');
 }
 
 

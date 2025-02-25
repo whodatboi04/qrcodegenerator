@@ -1,0 +1,80 @@
+<?php
+
+session_start();
+
+?>
+
+<!-- Include Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+<nav>
+    <ul>
+        <div class="nav-header">
+            <li>
+                <a href="ImportExaminee.php">
+                    <img src="pcp-logo.png" alt="PCP Logo">
+                </a>
+            </li>
+
+            <li class="nav-toggle">
+                <button>
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </li>
+        </div>
+        
+        <div class="nav-button">
+            <?php if($_SESSION['access'] === 'SuperAdmin'){ ?>
+                <li>
+                    <a href="ImportExaminee.php">
+                        <i class="fas fa-home"></i> Home
+                    </a>
+                </li>
+
+                <li>
+                    <a href="Dashboard.php">
+                        <i class="fas fa-chart-line"></i> Dashboard
+                    </a>
+                </li>
+
+                <li>
+                    <a href="register.php">
+                        <i class="fas fa-user-plus"></i> Register User
+                    </a>
+                </li>
+
+                <li>
+                    <a href="Accounts.php">
+                        <i class="fas fa-users"></i> Accounts
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="trash.php">
+                        <i class="fa-solid fa-trash"></i> Trash
+                    </a>
+                </li> 
+
+                <li>
+                    <a href="Profile.php">
+                        <i class="fa-solid fa-user"></i> Profile
+                    </a>
+                </li> 
+            <?php } else { ?>
+                <li>
+                    <a href="Dashboard.php">
+                        <i class="fas fa-chart-line"></i> Dashboard
+                    </a>
+                </li>
+
+                <li>
+                    <a href="Profile.php">
+                        <i class="fa-solid fa-user"></i> Profile
+                    </a>
+                </li> 
+            <?php } ?>
+        </div>
+    </ul>
+</nav>
+
+<script src="script.js"></script>

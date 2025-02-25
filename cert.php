@@ -1,21 +1,19 @@
 <?php 
 
- ini_set('memory_limit', '1024M'); // or you could use 1G
-
-
+ini_set('memory_limit', '1024M'); // or you could use 1G
 
 ini_set('display_startup_errors',1);
 ini_set('display_errors',1);
 error_reporting(-1);
 
 
-require_once("configFile_PSBIM.php");
-include('fpdf/fpdf.php');
+include("configFile_PSBIM.php");
+
+require('fpdf/fpdf.php');
 include('phpqrcode/qrlib.php');
 
-
-ob_start();
 session_start();
+ob_start();
 //header('Content-type: image/jpeg');
 header('Content-type: application/pdf'); // Change content type to PDF
 
@@ -23,7 +21,7 @@ header('Content-type: application/pdf'); // Change content type to PDF
 
 $font=realpath('arialbd.ttf');
 
-$image=imagecreatefromjpeg("PERMIT.jpg");
+$image=imagecreatefromjpeg("new_permit.jpg");
 
 $color=imagecolorallocate($image, 51, 51, 102);
 
@@ -61,6 +59,7 @@ imagedestroy($image);
 $text =  $_SESSION['qrlink'];
 
 $path = 'QRtemp/Qr.png';
+
 
 
 // $ecc stores error correction capability('L')

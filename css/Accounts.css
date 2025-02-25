@@ -1,0 +1,145 @@
+body{
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+}
+
+nav{
+    padding: 5px 8rem 5px 8rem;
+}
+
+.nav-toggle{
+    display: none;
+}
+
+nav ul{
+    display: flex;
+    justify-content: space-between;
+    text-decoration: none;
+    list-style: none;
+    align-items: center;
+}
+
+nav ul li a{
+    text-decoration: none;
+    list-style:none;
+    color: #511713;
+}
+
+ul .nav-button{
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+}
+
+ul li img{
+    width: 50px;
+}
+
+.status{
+    background-color: #7FFF5F;
+    color: #066F0B;
+    font-weight: bold;
+    padding: 2px 25px;
+    border-radius: 15px;
+}
+
+.section-container{
+    padding: 0 2rem 0 2rem;
+    height: 100vh;
+}
+
+.content-container{
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 15px;
+}
+
+.table-header h1{
+    font-size: 35px;
+    text-align: center;
+}
+
+.edit{
+    background-color: #FFF700;
+    color: #7F7F00;
+    padding: 0.5rem;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.archive{
+    background-color: #FF0000;
+    color: #7F0000;
+    padding: 0.5rem;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.action{
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+footer{
+    background-color: #2E2E2E;
+    padding: 18px;
+    display: flex;
+    justify-content: center;
+}
+
+footer .text-footer{
+    color: #fff;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px){
+
+    nav{
+        padding: 15px 35px;
+    }
+
+    nav ul{
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+    }
+
+    ul .nav-button{
+        display: none;
+    }
+
+    ul .nav-button.active {
+        display: flex;
+        flex-direction: column;
+        
+    }
+
+    ul .nav-header{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+        align-items: center;
+    }
+
+    .nav-toggle{
+        display: block;
+    }
+
+    .nav-toggle button{
+        background-color: #511713;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    
+    footer .text-footer{
+        text-align: center;
+    }
+}
